@@ -8,7 +8,7 @@ $ ls target/
 alation_docker.deb  alation_docker.rpm
 ```
 
-This build produces single `.deb` and a single `.rpm` which so far has installed and executed on every platform that we have tried.
+This build produces a single `.deb` and a single `.rpm` which, so far, has installed and executed on every platform that we have tried (enumerated in [link](#Leverage the Docker Static Builds)).
 
 ## Problem
 Ready-to-go installations for Docker turned to not be nearly as ubiquitous as the OCF and AA teams had initially thought.
