@@ -1,0 +1,13 @@
+Package: alation-docker
+Version: 1.0.0
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: iptables
+Maintainer: Christopher Henderson <chris.henderson@alation.com>
+Conflicts: docker (<< 1.5~),
+           docker-engine,
+           docker-engine-cs,
+           docker.io,
+           lxc-docker,
+           lxc-docker-virtual-package

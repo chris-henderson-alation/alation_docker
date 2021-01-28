@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if ! getent group docker > /dev/null; then
+    groupadd --system docker
+fi
+
+# We have observed that on Ubuntu 18 (Bionic) that systemd
+# did not immediately pick up on the existence of our unit
+# files, so in general lets check whether or not systemd
+# has picked up on our fresh installation. If not, lets
+# simply reload our unit files.
+systemctl status docker &> /dev/null
+# 4 is the exit code for "program or service status is unknown"
+# For more information regarding systemctl exit codes, please see
+#
+# https://freedesktop.org/software/systemd/man/systemctl.html#Exit%20status
+#
+#
+if [ $? -eq 4 ]; then
+    echo "Reloading systemd unit files in order to register Docker"
+    systemctl daemon-reload
+fi
