@@ -59,6 +59,8 @@ Docker provides [statically linked builds](https://download.docker.com/linux/sta
 
 Which begs the question - if we can replicate Docker's `.deb` and `.rpm` builds, but with their static builds instead of the dynamic ones, will that give us a single RPM/Deb to rule them all?
 
+Perhaps we can use the [docker-ce-packaging](https://github.com/docker/docker-ce-packaging) repo as a basis for how to package Docker.
+
 A smoke test consists of, essentially,
 
 ```bash
@@ -104,3 +106,4 @@ Pros:
 
 Cons:
 * We have to maintain a packaging repo such as this.
+* ...it just _feels_ like there's some unknown-unknown that we are missing here.
