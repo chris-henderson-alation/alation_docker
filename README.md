@@ -61,6 +61,8 @@ Which begs the question - if we can replicate Docker's `.deb` and `.rpm` builds,
 
 Perhaps we can use the [docker-ce-packaging](https://github.com/docker/docker-ce-packaging) repo as a basis for how to package Docker.
 
+@TODO explain what I took from the above repo and reduced it down to the bare essentials of what we need.
+
 A smoke test consists of, essentially,
 
 ```bash
