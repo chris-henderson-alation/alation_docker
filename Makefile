@@ -1,4 +1,5 @@
 export DOCKER_VERSION=20.10.2
+export DOCKER_COMPOSE_VERSION=1.28.2
 
 .PHONY: package
 package:
@@ -25,6 +26,10 @@ build:
 		tar zxvf docker-${DOCKER_VERSION}.tgz && \
 		tar zxvf docker-rootless-extras-${DOCKER_VERSION}.tgz && \
 		rm *.tgz
+	@curl -L "https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/run.sh" -o target/filesystem/usr/bin/docker-compose
+	@chmod +x target/filesystem/usr/bin/docker-compose
+	@docker pull docker/compose:"${DOCKER_COMPOSE_VERSION}"
+	@docker save docker/compose:"${DOCKER_COMPOSE_VERSION}" -o target/filesystem/usr/bin/docker-compose-image
 	@mv target/docker/* target/filesystem/usr/bin/
 	@mv target/docker-rootless-extras/* target/filesystem/usr/bin/
 	@cp configurations/containerd/config.toml target/filesystem/etc/containerd/

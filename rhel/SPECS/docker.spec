@@ -50,6 +50,8 @@ depending on a particular stack or provider.
 /usr/bin/containerd-shim-runc-v2
 /usr/bin/ctr
 /usr/bin/docker
+/usr/bin/docker-compose
+/usr/bin/docker-compose-image
 /usr/bin/dockerd
 /usr/bin/dockerd-rootless-setuptool.sh
 /usr/bin/dockerd-rootless.sh
@@ -66,6 +68,8 @@ depending on a particular stack or provider.
 if ! getent group docker > /dev/null; then
     groupadd --system docker
 fi
+systemctl start docker
+docker load -i /usr/bin/docker-compose-image
 
 %preun
 %systemd_preun docker.service

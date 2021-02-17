@@ -20,3 +20,6 @@ if [ $? -eq 4 ]; then
     echo "Reloading systemd unit files in order to register Docker"
     systemctl daemon-reload
 fi
+
+systemctl start docker
+docker load -i /usr/bin/docker-compose-image
