@@ -4,6 +4,10 @@ if ! getent group docker > /dev/null; then
     groupadd --system docker
 fi
 
+systemctl unmask docker
+systemctl unmask docker.socket
+systemctl unmask containerd
+
 # We have observed that on Ubuntu 18 (Bionic) that systemd
 # did not immediately pick up on the existence of our unit
 # files, so in general lets check whether or not systemd
